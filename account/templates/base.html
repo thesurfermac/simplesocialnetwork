@@ -8,6 +8,7 @@
     <body>
         <div id="header">
             <span class="logo">Bookmarks</span>
+            
 
             {% if request.user.is_authenticated %}
             <ul>
@@ -18,7 +19,7 @@
                     <a href="#" >Images</a>
                 </li>
                 <li {% if section == 'people' %} class='selected' {% endif %}>
-                    <a href="$" >My Dashboard</a>
+                    <a href="#" >My Dashboard</a>
                 </li>
             </ul>
             {% endif%}
@@ -32,7 +33,16 @@
             </span>
         </div>
         <div id="content">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li class="{{ message.tags }}">{{message|safe}}<a href="#" class="close">X</a></li>
+                
+                {% endfor %}
+            </ul>
+            {% endif %}
             {% block content %}
+            
             {% endblock %}
         </div>
     </body>
