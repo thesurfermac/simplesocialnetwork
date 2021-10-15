@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/thesurfermac/simplesocialnetwork
-    rev: main
+    rev: master
     hooks:
       - id: ggshield
         language_version: python3
